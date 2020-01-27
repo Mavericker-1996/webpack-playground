@@ -1,0 +1,19 @@
+#app {
+  text-align: center;
+}
+.container {
+  text-align: center;
+  border: 1px solid $primary-brand;
+  h1 {
+    color: $primary-brand;
+  }
+  h2 {
+    color: $hover-brand;
+  }
+  h3 {
+    color: $click-brand;
+  }
+  p {
+    color: $gray-04;
+  }
+}
