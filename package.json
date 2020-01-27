@@ -11,7 +11,11 @@
   "author": "zuoqi",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "@babel/preset-react": "^7.8.3",
     "@txdfe/postcss-at-theme-cssvar": "^0.2.1",
+    "babel-loader": "^8.0.6",
     "css-loader": "^3.4.2",
     "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.13.1",
@@ -22,10 +26,13 @@
     "sass-loader": "^8.0.2",
     "style-loader": "^1.1.3",
     "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.10"
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.1"
   },
   "dependencies": {
     "@txdfe/at": "^1.3.1",
-    "@txdfe/at-theme": "^1.0.2"
+    "@txdfe/at-theme": "^1.0.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
   }
 }

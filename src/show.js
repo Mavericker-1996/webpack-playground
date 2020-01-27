@@ -1,4 +1,4 @@
-function show(content) {
+const show = content => {
   window.document.getElementById('app').innerText = `Hello, ${content}`;
 }
 
