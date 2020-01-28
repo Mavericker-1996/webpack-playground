@@ -1,4 +1,5 @@
 require('./index.scss');
-const show = require('./show.js');
+// const show = require('./show.js');
 import { a } from './tree-shaking';
-show('Webpack');
+// show('Webpacksk');
+window.document.getElementById('search').innerText = `Helxlo${Math.random()}, searchh`;

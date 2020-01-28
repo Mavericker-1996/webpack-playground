@@ -40,20 +40,29 @@ module.exports = {
           {
             loader: 'url-loader',
             options: {
-              limit: 10240,
+              limit: 5120,
+              name: '[name]_[hash:8][ext]'
             }
           }
         ]
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
-        use: 'file-loader'
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 5120,
+              name: '[name]_[hash:8][ext]'
+            }
+          }
+        ]
       }
     ]
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: '[name].min.css',
+      filename: '[name]_[contenthash].css',
       chunkFilename: '[id].css',
     }),
   ],
