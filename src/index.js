@@ -3,11 +3,12 @@ const show = require('./show.js');
 show('Webpack');
 import React from 'react';
 import ReactDOM from 'react-dom';
+import img from './image/test.jpg';
 
 class App extends React.Component {
   render() {
     return (
-      <div>React Text</div>
+      <div>React Text <img src={img} /></div>
     )
   }
 }

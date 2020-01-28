@@ -9,7 +9,7 @@ module.exports = {
     search: './src/search.js',
   },
   output: {
-    filename: '[name].[id].js',
+    filename: '[name].js',
     path: path.resolve(__dirname, './dist'),
   },
   module: {
@@ -33,6 +33,10 @@ module.exports = {
             },
           },
         ]
+      },
+      {
+        test: /\.(png|jpg|gif|jpeg)$/,
+        use: 'file-loader'
       }
     ]
   },
@@ -42,5 +46,5 @@ module.exports = {
       chunkFilename: '[id].css',
     }),
   ],
-  mode: 'production',
+  mode: 'development',
 };
