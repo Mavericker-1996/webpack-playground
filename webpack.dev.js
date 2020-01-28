@@ -36,6 +36,17 @@ module.exports = {
       },
       {
         test: /\.(png|jpg|gif|jpeg)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 10240, // 小于 10kb 采用 base64 编码，减少 http 请求次数
+            }
+          }
+        ]
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
         use: 'file-loader'
       }
     ]
