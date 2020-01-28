@@ -2,6 +2,7 @@
 
 const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin"); //提取 css 到单独文件
+const HtmlWebpackPlugin = require('html-webpack-plugin'); // 生成 html，并进行压缩
 
 module.exports = {
   entry: {
@@ -56,6 +57,28 @@ module.exports = {
       filename: '[name].min.css',
       chunkFilename: '[id].css',
     }),
+    new HtmlWebpackPlugin({
+      template: path.join(__dirname, 'src/index.html'),
+      filename: 'index.html',
+      chunks: ['index'],
+      minify: {
+        html5: true,
+        collapseWhitespace: true,
+        preserveLineBreaks: false,
+        removeComments: true,
+      }
+    }),
+    new HtmlWebpackPlugin({
+      template: path.join(__dirname, 'src/search.html'),
+      filename: 'search.html',
+      chunks: ['search'],
+      minify: {
+        html5: true,
+        collapseWhitespace: true,
+        preserveLineBreaks: false,
+        removeComments: true,
+      }
+    })
   ],
   mode: 'development',
 };
