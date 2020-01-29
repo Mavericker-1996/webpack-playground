@@ -4,7 +4,7 @@ show('Webpack');
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import img from './image/test.jpg';
+import img from '../image/test.jpg';
 
 class App extends React.Component {
   render() {

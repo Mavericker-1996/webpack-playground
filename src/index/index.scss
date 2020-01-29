@@ -1,0 +1,32 @@
+@font-face {
+  font-family: 'PT Mono';
+  src: url('../font/PTMono-Regular.ttf') format('truetype');
+}
+#app {
+  text-align: center;
+}
+#react {
+  text-align: center;
+  background: #000000;
+  margin: 10px 20px 10px 20px;
+}
+#search {
+  text-align: center;
+}
+.container {
+  text-align: center;
+  border: 1px solid $primary-brand;
+  font-family: 'PT Mono';
+  h1 {
+    color: $primary-brand;
+  }
+  h2 {
+    color: $hover-brand;
+  }
+  h3 {
+    color: $click-brand;
+  }
+  p {
+    color: $gray-04;
+  }
+}
