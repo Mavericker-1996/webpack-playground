@@ -1,5 +1,6 @@
 require('./index.scss');
 const show = require('./show.js');
+import '../../common';
 show('Webpack');
 
 import React from 'react';

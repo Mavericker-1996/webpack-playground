@@ -1,7 +1,7 @@
 export function a() {
-  console.log('this is function a');
+  return 'this is function a';
 }
 
 export function b() {
-  console.log('this is function b');
+  return 'this is function b';
 }

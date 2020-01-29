@@ -98,6 +98,18 @@ module.exports = {
       }
     ]
   },
+  optimization: {
+    splitChunks: {
+      minSize: 0,
+      cacheGroups: {
+        commons: {
+          name: 'commons',
+          chunks: 'all',
+          minChunks: 2,
+        }
+      }
+    }
+  },
   plugins: [
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
