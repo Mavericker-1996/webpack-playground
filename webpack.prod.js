@@ -6,13 +6,15 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin"); //提取 css �
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin'); //压缩 css 文件
 const { CleanWebpackPlugin } = require('clean-webpack-plugin'); // 构建前清空构建目录
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // 生成 html，并进行压缩
+const HtmlWebpackExternalsPlugin = require('html-webpack-externals-plugin') //提取外部资源
 
 const setMPA = () => {
   const entry = {};
   const htmlWebpackPlugins = [];
   // 找到符合条件的路径
   const entryFiles = glob.sync(path.join(__dirname, './src/*/index.js'));
-  console.log('entryFiles', entryFiles);
+  // console.log('entryFiles', entryFiles);
+  //entryFiles [ '/Users/zuoqi/Desktop/Codes/postcss-test-project/src/index/index.js', '/Users/zuoqi/Desktop/Codes/postcss-test-project/src/search/index.js' ]
 
   entryFiles.forEach(entryFile => {
     const match = entryFile.match(/src\/(.*)\/index\.js/);
@@ -103,6 +105,21 @@ module.exports = {
       chunkFilename: '[id].css',
     }),
     new OptimizeCssAssetsPlugin(),
-  ].concat(htmlWebpackPlugins),
+  ].concat(htmlWebpackPlugins).concat([
+    new HtmlWebpackExternalsPlugin({
+      externals: [
+        {
+          module: 'react',
+          entry: '//cdn.jsdelivr.net/npm/react@16.12.0/umd/react.production.min.js',
+          global: 'React',
+        },
+        {
+          module: 'react-dom',
+          entry: '//cdn.jsdelivr.net/npm/react-dom@16.12.0/umd/react-dom.production.min.js',
+          global: 'ReactDOM',
+        },
+      ],
+    })
+  ]),
   mode: 'production',
 };

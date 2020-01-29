@@ -4,6 +4,7 @@ const glob = require('glob');
 const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin"); //提取 css 到单独文件
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // 生成 html，并进行压缩
+const HtmlWebpackExternalsPlugin = require('html-webpack-externals-plugin') //提取外部资源
 
 // console.log(path.resolve(__dirname, './dist')); // /Users/zuoqi/Desktop/Codes/postcss-test-project/dist
 // console.log(path.join(__dirname, './dist')); // /Users/zuoqi/Desktop/Codes/postcss-test-project/dist
@@ -97,6 +98,21 @@ module.exports = {
       filename: '[name].min.css',
       chunkFilename: '[id].css',
     }),
-  ].concat(htmlWebpackPlugins),
+  ].concat(htmlWebpackPlugins).concat([
+    new HtmlWebpackExternalsPlugin({
+      externals: [
+        {
+          module: 'react',
+          entry: '//cdn.jsdelivr.net/npm/react@16.12.0/umd/react.development.js',
+          global: 'React',
+        },
+        {
+          module: 'react-dom',
+          entry: '//cdn.jsdelivr.net/npm/react-dom@16.12.0/umd/react-dom.development.js',
+          global: 'ReactDOM',
+        },
+      ],
+    })
+  ]),
   mode: 'development',
 };
