@@ -7,13 +7,12 @@
 }
 #react {
   text-align: center;
-  background: #000000;
   margin: 10px 20px 10px 20px;
 }
 #search {
   text-align: center;
 }
-.container {
+:global(.container) {
   text-align: center;
   border: 1px solid $primary-brand;
   font-family: 'PT Mono';
@@ -29,4 +28,11 @@
   p {
     color: $gray-04;
   }
+}
+.center {
+  text-align: center;
+}
+.root {
+  composes: center;
+  background: $primary-brand;
 }

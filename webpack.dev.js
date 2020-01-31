@@ -54,6 +54,9 @@ module.exports = {
     filename: '[name].js',
     path: path.join(__dirname, './dist'),
   },
+  externals: {
+    '@txdfe/at': 'var AT',
+  },
   module: {
     rules: [
       {
@@ -64,7 +67,14 @@ module.exports = {
         test: /\.(css|scss)$/,
         use: [
           MiniCssExtractPlugin.loader, //使用 MiniCssExtractPlugin 就不用 style-loader 了，作用冲突
-          'css-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                localIdentName: '[name]__[local]--[hash:base64:5]',
+              },
+            },
+          },
           'resolve-url-loader',
           'postcss-loader',
           {
@@ -110,6 +120,11 @@ module.exports = {
           module: 'react-dom',
           entry: '//cdn.jsdelivr.net/npm/react-dom@16.12.0/umd/react-dom.development.js',
           global: 'ReactDOM',
+        },
+        {
+          module: '@txdfe/at',
+          entry: '//cdn.jsdelivr.net/npm/@txdfe/at@1.3.1/build/at.min.js',
+          global: 'AT',
         },
       ],
     })

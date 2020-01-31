@@ -1,0 +1,8 @@
+.center {
+  text-align: center;
+}
+.root {
+  composes: center;
+  background: $primary-brand;
+  color: $snow;
+}

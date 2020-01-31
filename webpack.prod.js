@@ -50,6 +50,9 @@ module.exports = {
     filename: '[name]_[chunkhash:8].js',
     path: path.resolve(__dirname, './dist'),
   },
+  externals: {
+    '@txdfe/at': 'var AT',
+  },
   module: {
     rules: [
       {
@@ -129,6 +132,11 @@ module.exports = {
           module: 'react-dom',
           entry: '//cdn.jsdelivr.net/npm/react-dom@16.12.0/umd/react-dom.production.min.js',
           global: 'ReactDOM',
+        },
+        {
+          module: '@txdfe/at',
+          entry: '//cdn.jsdelivr.net/npm/@txdfe/at@1.3.1/build/at.min.js',
+          global: 'AT',
         },
       ],
     })
